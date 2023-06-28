@@ -1,19 +1,38 @@
 package com.example.rickandmortyapp.di
 
-import com.example.rickandmortyapp.data.api.dto.CharacterDTO
-import com.example.rickandmortyapp.domain.models.CharacterResponse
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import com.example.rickandmortyapp.common.Constants.BASE_URL
+import com.example.rickandmortyapp.data.api.RickAndMortyAPI
+import com.example.rickandmortyapp.data.api.impl.RickAndMortyCharacterAPIImpl
+import com.example.rickandmortyapp.domain.repository.RickAndMortyRepository
+import com.example.rickandmortyapp.domain.repository.impl.CharacterRepositoryImpl
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
-class RickAndMortyAPIService {
+@Module
+@InstallIn(SingletonComponent::class)
+object ApplicationModule {
 
-    interface CharacterService {
+    @Provides
+    @Singleton
+    fun provideRetrofit(): Retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
+        .build()
 
-        @GET("character/")
-        suspend fun fetchCharacters(@Query("page") paramValue: String): CharacterResponse
+    @Provides
+    @Singleton
+    fun provideCharacterApi(retrofit: Retrofit): RickAndMortyAPI.RickAndMortyCharacterAPI
+            = RickAndMortyCharacterAPIImpl(retrofit)
 
-        @GET("character/{id}")
-        suspend fun fetchSingleCharacter(@Path("id") characterId: String): CharacterDTO
-    }
+    @Provides
+    @Singleton
+    fun provideCharacterRepository(apiManager: RickAndMortyAPI.RickAndMortyCharacterAPI): RickAndMortyRepository.CharacterRepository
+            = CharacterRepositoryImpl(apiManager)
 }

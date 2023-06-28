@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.rickandmortyapp.MainActivity
+import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.CharacterListContainerFragmentBinding
 import com.example.rickandmortyapp.ui.character_list_screen.character_list_recyclerview.CharacterListRecyclerViewFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,11 +62,7 @@ class CharacterListContainerFragment : Fragment() {
         val recyclerViewFragment =
             CharacterListRecyclerViewFragment.newInstance(viewModel = viewModel) { characterId ->
 
-                findNavController().navigate(
-                    CharacterListContainerFragmentDirections.actionCharacterListScreenFragmentToCharacterDetailFragment(
-                        characterId
-                    )
-                )
+
             }
 
         childFragmentManager
