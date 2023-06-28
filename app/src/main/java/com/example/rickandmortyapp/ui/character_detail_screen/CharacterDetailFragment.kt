@@ -9,7 +9,6 @@ import com.example.rickandmortyapp.databinding.CharacterDetailFragmentBinding
 
 class CharacterDetailFragment : Fragment() {
 
-
     private var _binding: CharacterDetailFragmentBinding? = null
     private val binding get() = _binding!!
 
