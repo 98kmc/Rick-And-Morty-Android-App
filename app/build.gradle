@@ -41,6 +41,7 @@ android {
             res.srcDirs = [
                     "src/main/res/layout/character_list_screen",
                     "src/main/res/layout/character_list_screen/cells/",
+                    "src/main/res/layout/character_detail_screen",
                     "src/main/res"
             ]
         }
@@ -71,6 +72,7 @@ dependencies {
 
     //Hilt 2
     implementation 'com.google.dagger:hilt-android:2.46.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     kapt 'com.google.dagger:hilt-compiler:2.46.1'
 
     //Okhttp3

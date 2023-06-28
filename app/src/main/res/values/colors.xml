@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#F6F0F0</color>
+    <color name="R_n_M_palette_dark_blue">#24325F</color>
+    <color name="R_n_M_palette_dark_brown">#81491E</color>
+    <color name="R_n_M_palette_green">#97CE4C</color>
+    <color name="R_n_M_palette_light_blue">#77C4EF</color>
+    <color name="R_n_M_palette_light_brown">#907B5D</color>
+    <color name="R_n_M_palette_light_orange">#E69142</color>
+    <color name="R_n_M_palette_red">#FB6467</color>
+    <color name="R_n_M_palette_sean_blue">#69C8EC</color>
+    <color name="R_n_M_palette_yellow">#F9FD7B</color>
 </resources>
