@@ -1,14 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.character_detail_screen.CharacterDetailFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.character_detail_screen.view.CharacterDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/character_Imageview"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        android:padding="2dp"
+        android:scaleType="fitCenter"
+        app:strokeWidth="1dp"
+        app:shapeAppearanceOverlay="@style/RoundedCornerImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="@drawable/placeholder_image"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/character_specie_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="-16dp"
+        style="@style/CharacterDetailRegularTextView"
+        app:layout_constraintTop_toBottomOf="@id/character_Imageview"
+        app:layout_constraintEnd_toStartOf="@id/character_Imageview"
+        tools:text="specie" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/character_status_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-16dp"
+        android:layout_marginTop="16dp"
+        style="@style/CharacterDetailRegularTextView"
+        app:layout_constraintTop_toBottomOf="@id/character_Imageview"
+        app:layout_constraintStart_toEndOf="@id/character_Imageview"
+        tools:text="status" />
+
+    <TextView
+        android:id="@+id/gender_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        style="@style/CharacterDetailTitleTextView"
+        app:layout_constraintTop_toBottomOf="@id/character_specie_TextView"
+        app:layout_constraintStart_toStartOf="@id/character_specie_TextView"
+        android:text="Gender:" />
+
+    <TextView
+        android:id="@+id/character_gender_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/CharacterDetailRegularTextView"
+        app:layout_constraintTop_toBottomOf="@id/gender_TextView"
+        app:layout_constraintStart_toStartOf="@id/character_specie_TextView"
+        tools:text="gender" />
+
+    <TextView
+        android:id="@+id/from_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="@style/CharacterDetailTitleTextView"
+        app:layout_constraintTop_toBottomOf="@id/character_gender_TextView"
+        app:layout_constraintStart_toStartOf="@id/character_specie_TextView"
+        android:text="From:" />
+
+    <TextView
+        android:id="@+id/character_origin_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/CharacterDetailRegularTextView"
+        app:layout_constraintTop_toBottomOf="@id/from_TextView"
+        app:layout_constraintStart_toStartOf="@id/character_specie_TextView"
+        tools:text="origin" />
+
+    <TextView
+        android:id="@+id/first_seen_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="@style/CharacterDetailTitleTextView"
+        app:layout_constraintTop_toBottomOf="@id/character_origin_TextView"
+        app:layout_constraintStart_toStartOf="@id/character_specie_TextView"
+        android:text="First Seen In:" />
+
+    <TextView
+        android:id="@+id/character_first_seen_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/CharacterDetailRegularTextView"
+        app:layout_constraintTop_toBottomOf="@id/first_seen_TextView"
+        app:layout_constraintStart_toStartOf="@id/character_specie_TextView"
+        tools:text="first episode" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

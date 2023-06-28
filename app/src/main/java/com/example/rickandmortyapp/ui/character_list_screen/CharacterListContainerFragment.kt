@@ -61,13 +61,23 @@ class CharacterListContainerFragment : Fragment() {
 
         val recyclerViewFragment =
             CharacterListRecyclerViewFragment.newInstance(viewModel = viewModel) { characterId ->
-
-
+                navigateToDetailScreen(characterId)
             }
 
         childFragmentManager
             .beginTransaction()
             .replace(binding.characterListRecyclerviewContainer.id, recyclerViewFragment)
             .commit()
+    }
+
+    /*
+    * Navigation
+    * */
+    private fun navigateToDetailScreen(characterId: Int) {
+        findNavController().navigate(
+            CharacterListContainerFragmentDirections.actionCharacterListScreenFragmentToCharacterDetailFragment(
+                characterId
+            )
+        )
     }
 }
